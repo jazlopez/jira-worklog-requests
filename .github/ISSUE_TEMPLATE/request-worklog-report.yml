@@ -1,0 +1,35 @@
+name: Request Worklog Report
+description: Submit a worklog report request
+title: "[REQUEST]: "
+labels: []
+assignees:
+  - jazlopez
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to submit your request. It will create a new worklog report that will be shipped to you.!
+  - type: input
+    id: jql
+    attributes:
+      label: Valid JQL Filter
+      description: JQL filter to pull work log data from.
+      placeholder: ex. 'project = "DHPB"'
+    validations:
+      required: true
+  - type: input
+    id: email_to
+    attributes:
+      label: Destination Email Address
+      description: Email address to ship data to.
+      placeholder: email@address.com
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://jlopez.mx)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
