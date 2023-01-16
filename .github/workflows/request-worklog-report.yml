@@ -15,6 +15,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: echo "Connected"
+      - name: Issue Forms Body Parser
+        id: parse
+        uses: zentered/issue-forms-body-parser@v1.4.3
+      - run: echo "${{ JSON.stringify(steps.parse.outputs.data) }}"
       - name: Parse inputs
         env:
           body : ${{ github.event.issue.body}}
