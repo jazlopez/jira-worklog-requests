@@ -5,6 +5,10 @@ on:
   issues:
     types:
         - opened
+        - closed
+        - reopened
+        - labeled
+        - unlabeled
 
 jobs:
   receive-request-workflow-report:
@@ -13,8 +17,10 @@ jobs:
       - run: echo "Connected"
       - name: Parse inputs
         env:
+          body : ${{ github.event.issue.body}}
           jql : ${{ github.event.issue.body.jql }}
           email_to: ${{ github.event.issue.body.email_to }}
         run: |
-          printf "JQL=%s\n" "${jql}"
-          printf "EMAIL_TO=%s\n" "${email_to}"
+          echo "BODY=$body"
+          echo "JQL=$jql"
+          echo "EMAIL_TO=$email_to"
