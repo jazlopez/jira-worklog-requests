@@ -20,4 +20,4 @@ jobs:
           body : ${{ github.event.issue.body}}
         run: |
           echo "${body}" > /tmp/.action.md
-          cat /tmp/.action.md
+          cat /tmp/.action.md | sed 's/^\#.*//g' | sed '/^[[:blank:]]*$/ d'
