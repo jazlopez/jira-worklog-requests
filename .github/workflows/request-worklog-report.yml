@@ -1,0 +1,12 @@
+name: Request Worklog Report
+run-name: ${{ github.actor }} has received a request to populate a worklog report
+on:
+  issues:
+    types:
+        - opened
+
+jobs:
+  receive-request-workflow-report:
+    runs-on: self-hosted
+    steps:
+      - run: echo "Connected"
