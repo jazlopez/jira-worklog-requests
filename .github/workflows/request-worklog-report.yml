@@ -1,6 +1,7 @@
 name: Request Worklog Report
 run-name: ${{ github.actor }} has received a request to populate a worklog report
 on:
+  workflow_dispatch:
   issues:
     types:
         - opened
