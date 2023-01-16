@@ -18,9 +18,5 @@ jobs:
       - name: Parse inputs
         env:
           body : ${{ github.event.issue.body}}
-          jql : ${{ github.event.issue.body.jql }}
-          email_to: ${{ github.event.issue.body.email_to }}
         run: |
-          echo "BODY=$body"
-          echo "JQL=$jql"
-          echo "EMAIL_TO=$email_to"
+          echo $body | sed 's/^\#.*//g'
